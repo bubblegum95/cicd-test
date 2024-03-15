@@ -56,10 +56,10 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ DB_HOST }}
-          username: ${{ DB_USERNAME }}
+          host: ${{ secrets.DB_HOST }}
+          username: ${{ secrets.DB_USERNAME }}
           key: ${{ SSH_PRIVATE_KEY }}
-          port: ${{ DB_PORT }}
+          port: ${{ secrets.DB_PORT }}
           script: |
             # 프로젝트 디렉토리로 이동
             cd /home/ubuntu/ci-cd-test
